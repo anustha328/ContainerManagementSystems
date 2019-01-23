@@ -1,0 +1,160 @@
+﻿@model ContainerManagementSystem.Models.AdminHomeModel
+@{
+
+	ViewBag.Title = "Shipment Page";
+}
+@{
+	Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.16/css/dataTables.jqueryui.min.css">
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
+
+
+<header class="masthead text-white text-center">
+	<div align="right" style="padding:10px">
+
+		<a href="~/Home/Index" onclick="ClearData()" style=" width:100px; height:40px; padding-top:8px; margin-bottom:20px; margin-top:20px; font-size:larger; color:black">
+			Logout
+		</a>
+	</div>
+
+</header>
+<h2>Shipment Details</h2>
+
+
+@*<div class="row" id="Search">
+
+	<div class="form-group col-sm-1">
+		<label>Search: </label>
+	</div>
+	<div class="form-group col-sm-3">
+		<input type="text" id="SearchItem" class="form-control">
+	</div>
+
+	<div class="form-group col-sm-3">
+		<div>
+			<input type="submit" class="btn btn-primary btn-block" value="Search" onclick="GetSearch();" style="width:150px;">
+
+		</div>
+	</div>
+
+</div>*@
+
+<style>
+	.img-responsive {
+		width: 100%;
+		height: auto;
+	}
+
+	.btn btn-primary btn-lg {
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 10px 2px;
+		margin-top: auto;
+		cursor: pointer;
+	}
+</style>
+
+
+
+@section Scripts{
+
+	<script src="~/Scripts/jquery.1.js"></script>
+	<script src="~/Scripts/datatable.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.jqueryui.min.js"></script>
+	<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function () {
+			$('#Shipment').DataTable({
+				ajax: {
+					responsive: true,
+					url: '/AdminShipment/ViewShipment',
+					dataSrc: ''
+				},
+				columns: [
+					{ data: 'SN', 'bSortable': false },
+					{ data: 'ContainerName', "autoWidth": true },
+					{ data: 'ShipmentTitle', "autoWidth": true },
+					{ data: 'Name', "autoWidth": true },
+					{ data: 'ContactNo', "autoWidth": true },
+					{ data: 'Email', "autoWidth": true },
+					{ data: 'DepartureFrom', "autoWidth": true },
+					{ data: 'ArrivalTo', "autoWidth": true },
+					{ data: 'DepartureDate', "autoWidth": true },
+					{ data: 'ArrivalDate', "autoWidth": true },
+					{ data: 'OrderDate', "autoWidth": true },
+					{ data: 'Status', "autoWidth": true },
+				]
+
+
+			});
+
+
+		});
+			function GetSearch() {
+					var SearchItem = $("#SearchItem").val();
+					if (SearchItem == "") {
+						$("#SearchItem").focus();
+						return false;
+					}
+
+					var table = $('#Shipment').DataTable();
+					table.destroy();
+
+					$('#Shipment').DataTable({
+
+					
+					ajax: {
+						responsive: true,
+						url: '/AdminShipment/SearchShipment?SearchItem' + SearchItem,
+							dataSrc: ''
+						},
+						columns: [
+							{ data: 'SN', 'bSortable': false },
+							{ data: 'ContainerName', "autoWidth": true },
+							{ data: 'ShipmentTitle', "autoWidth": true },
+							{ data: 'Name', "autoWidth": true },
+							{ data: 'ContactNo', "autoWidth": true },
+							{ data: 'Email', "autoWidth": true },
+							{ data: 'DepartureFrom', "autoWidth": true },
+							{ data: 'ArrivalTo', "autoWidth": true },
+							{ data: 'DepartureDate', "autoWidth": true },
+							{ data: 'ArrivalDate', "autoWidth": true },
+							{ data: 'OrderDate', "autoWidth": true },
+							{ data: 'Status', "autoWidth": true },
+						]
+
+					});
+				};
+
+		</script>
+}
+<hr />
+
+
+<div class="widget-content padded clearfix">
+	<table id="Shipment" class="table table-bordered table-striped dataTable no-footer table-hover display"
+		   cellspacing="0">
+		<thead>
+			<tr>
+				<th>SN</th>
+				<th>ContainerName</th>
+				<th>Shipment</th>
+				<th>Name</th>
+				<th>Contact</th>
+				<th>Email</th>
+				<th>Departure</th>
+				<th>Arrival</th>
+				<th>DepartureDate</th>
+				<th>ArrivalDate</th>
+				<th>OrderDate</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+	</table>
+</div>
+

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - COntainer Management System</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:black; " >
+        <div class="container">
+            <div class="navbar-header" style="height:50px">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Container Management System", "Index", "AdminHome", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse" style="font-size:large;">
+				<ul class="nav navbar-nav">
+					@*  <li>@Html.ActionLink("Admin", "Index", "Admin_User")</li>*@
+					<li>@Html.ActionLink("Home", "Index", "AdminHome")</li>
+					<li>@Html.ActionLink("User", "Index", "AdminUser")</li>
+					<li>@Html.ActionLink("Container", "Index", "AdminHome")</li>
+					<li>@Html.ActionLink("Country", "Index", "AdminCountry")</li>
+					<li>@Html.ActionLink("Shipment", "Index", "AdminShipment")</li>
+				</ul>
+
+	</div>
+           </div>
+        </div>
+        
+  
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="background-color:dimgray;">
+            <p  align="center" style="color:white;">&copy; @DateTime.Now.Year - Lord Buddha Education Foundation Campus</p>
+			<p align="center" style="color:white;"> Developed By: Anu Shrestha</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContainerManagementSystem", "ContainerManagementSystem\ContainerManagementSystem.csproj", "{FE459375-3C08-4B56-80DB-2AB5B5B14F02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE459375-3C08-4B56-80DB-2AB5B5B14F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE459375-3C08-4B56-80DB-2AB5B5B14F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE459375-3C08-4B56-80DB-2AB5B5B14F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE459375-3C08-4B56-80DB-2AB5B5B14F02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB53C4A1-27C7-4A38-B72B-0D1D4F62DAF3}
+	EndGlobalSection
+EndGlobal

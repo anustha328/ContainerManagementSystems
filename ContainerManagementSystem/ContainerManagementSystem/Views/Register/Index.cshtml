@@ -1,0 +1,72 @@
+﻿@model ContainerManagementSystem.Models.LogInModel
+
+@{
+	ViewBag.Title = "Index";
+}
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+	<div >
+				@if (TempData["Success"] != null)
+				{
+					<p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+				}
+
+				@*<input id="hfID" type="hidden" />*@
+
+				@using (Html.BeginForm("Save", "Register", FormMethod.Post, new { @class = "form-Vertical", @role = "form", @id = "UserHOme" }))
+
+				{
+
+
+					@Html.AntiForgeryToken()
+					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+					@Html.HiddenFor(model => model.UserID)
+
+
+					<div class="row" style="width:500px;" align="center">
+						<div style="margin-left:10px; margin-right:10px; margin-top:10px; height:auto; width:auto" class="responsive">
+							<h3 style="text-align:center; color:#337ab7"><b>Registration</b></h3>
+
+							<div class="col-md form-group">
+								@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label  col-xs-4" })
+								@Html.TextBoxFor(model => Model.Name, htmlAttributes: new { @required = "required", @class = "form-control", @placeholder = "Enter First Name" })
+							</div>
+
+							<div class="col-md form-group ">
+								@Html.LabelFor(model => model.ContactNo, htmlAttributes: new { @class = "control-label col-xs-4" })
+								@Html.TextBoxFor(model => Model.ContactNo, htmlAttributes: new { @required = "required", @class = "form-control", @placeholder = "Enter Contact Number" })
+							</div>
+							<div class="col-md form-group ">
+								@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-xs-4" })
+								@Html.TextBoxFor(model => Model.Email, htmlAttributes: new { @required = "required", @class = "form-control", @placeholder = "Enter Email Address" ,@type="email"})
+							</div>
+
+							<div class="col-md form-group ">
+								@Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-xs-4" })
+								@Html.TextBoxFor(model => Model.Username, htmlAttributes: new { @required = "required", @class = "form-control", @placeholder = "Enter UserName " })
+							</div>
+
+							<div class="col-md form-group ">
+								@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-xs-4" })
+								@Html.PasswordFor(model => Model.Password, htmlAttributes: new { @required = "required", @class = "form-control", @placeholder = "Enter Password" })
+							</div>
+
+							<div class="col-md form-group ">
+								@Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-xs-4" })
+								@Html.PasswordFor(model => Model.ConfirmPassword, htmlAttributes: new { @required = "required", @class = "form-control", @placeholder = "Enter password" })
+							</div>
+
+							<div class="col-md-4 form-group  " style="padding-top:25px; margin-left:150px; ">
+								<button type="submit" class="btn btn-primary btn-block" style="background-color:blue;margin-left:auto;" value="Register" align="center">Register</button>
+							</div>
+
+						</div>
+
+					</div>
+				}
+	
+
+		</div>
